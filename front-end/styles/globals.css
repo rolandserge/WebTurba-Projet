@@ -1,0 +1,1739 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,800&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+:root {
+  --max-width: 1100px;
+  --border-radius: 12px;
+  --display-flex: flex;
+  --background-fond: orange;
+  --center: center;
+  --border: 1px solid #30A0E0;
+  --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
+    'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
+    'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+
+  --primary-glow: conic-gradient(
+    from 180deg at 50% 50%,
+    #16abff33 0deg,
+    #0885ff33 55deg,
+    #54d6ff33 120deg,
+    #0071ff33 160deg,
+    transparent 360deg
+  );
+  --secondary-glow: radial-gradient(
+    rgba(255, 255, 255, 1),
+    rgba(255, 255, 255, 0)
+  );
+
+  --tile-start-rgb: 239, 245, 249;
+  --tile-end-rgb: 228, 232, 233;
+  --tile-border: conic-gradient(
+    #00000080,
+    #00000040,
+    #00000030,
+    #00000020,
+    #00000010,
+    #00000010,
+    #00000080
+  );
+
+  --callout-rgb: 238, 240, 241;
+  --callout-border-rgb: 172, 175, 176;
+  --card-rgb: 180, 185, 188;
+  --card-border-rgb: 131, 134, 135;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+
+    --primary-glow: radial-gradient(rgba(1, 65, 255, 0.4), rgba(1, 65, 255, 0));
+    --secondary-glow: linear-gradient(
+      to bottom right,
+      rgba(1, 65, 255, 0),
+      rgba(1, 65, 255, 0),
+      rgba(1, 65, 255, 0.3)
+    );
+
+    --tile-start-rgb: 2, 13, 46;
+    --tile-end-rgb: 2, 5, 19;
+    --tile-border: conic-gradient(
+      #ffffff80,
+      #ffffff40,
+      #ffffff30,
+      #ffffff20,
+      #ffffff10,
+      #ffffff10,
+      #ffffff80
+    );
+
+    --callout-rgb: 20, 20, 20;
+    --callout-border-rgb: 108, 108, 108;
+    --card-rgb: 100, 100, 100;
+    --card-border-rgb: 200, 200, 200;
+  }
+}
+
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background: #FFFCF7;
+}
+
+
+.layout_main {
+  min-height: 80vh;
+}
+
+
+
+
+/* navbar style code */
+.navbar {
+  height: 12vh;
+  background: #FEF5E3;
+  display: flex;
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+  align-items: center;
+  justify-content: space-around;
+}
+.navbar .lien{
+  width: 28%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navbar .logo{
+  text-decoration: none;
+  color: black;
+}
+.navbar .lien .home_div{
+  text-decoration: none;
+  /* border: 1px solid; */
+  display: flex;
+  width: 25%;
+  align-items: center;
+  justify-content: space-around;
+  color: rgb(0, 0, 0);
+}
+.navbar .lien .home_div .image_div {
+  width: 24%;
+  height: 2.8vh;
+  /* border: 1px solid; */
+}
+.navbar .lien .home_div .image_div .image_home {
+  width: 100%;
+  height: 100%;
+}
+.navbar .lien .profil {
+  display: flex;
+  /* border: 1px solid; */
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px; 
+  background: white;
+  width: 65%;
+  height: 7.5vh;
+  border-radius: 50px;
+  cursor: pointer;
+  align-items: var(--center);
+  justify-content: space-around;
+}
+.navbar .lien .profil .image {
+  width: 18%;
+  border-radius: 50%;
+  height: 6.3vh;
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 1.5em;
+  color: white;
+  background: orange;
+}
+.navbar .lien .profil .image p {
+  margin-top: 0.1em;
+}
+.navbar .lien .profil .user_nom {
+  /* border: 1px solid; */
+  width: 70%;
+  text-transform: uppercase;
+}
+.navbar .lien .contact {
+  background: rgb(248, 202, 123);
+  padding: 0.6em 0.8em;
+  border-radius: 30px 0 30px 0;
+  color: white;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+/* Pop up de profil */
+.container_pop {
+  background: white;
+  width: 16%;
+  z-index: 100;
+  position: absolute;
+  top: 4.1em;
+  right: 14em;
+  border-radius: 6px;
+}
+.container_pop .pop_up {
+  display: flex;
+  margin: 1em;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  height: 28vh;
+  /* border: 1px solid red; */
+}
+.container_pop .pop_up .pop_card {
+  display: flex;
+  /* border: 1px solid; */
+  justify-content: space-around;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+  padding: 0.2em;
+}
+.container_pop .pop_up .pop_card:hover {
+  background: #f6f6f6;
+  border-radius: 5px;
+}
+.container_pop .pop_up .image_pop {
+  width: 10%;
+  height: 2.7vh;
+  /* border: 1px solid; */
+}
+.container_pop .pop_up .image_pop .image {
+  width: 100%;
+  height: 100%;
+}
+.container_pop .pop_up .pop_card .titre {
+  /* border: 1px solid blue; */
+  width: 82%;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* header code style */
+.container_header {
+  background: #FEF5E3;
+  padding-top: 5rem;
+
+}
+.container_header .card_header {
+  display: flex;
+  margin: 0 1.5em;
+  height: 75vh;
+  align-items: center;
+  justify-content: space-around;
+}
+.container_header .card_header .image_gauche {
+  width: 25%;
+}
+.container_header .card_header .image_gauche .image {
+  width: 100%;
+}
+.container_header .card_header .bienvenu_div {
+  height: 33vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 40%;
+}
+.container_header .card_header .bienvenu_div .text_acceuil p {
+  text-transform: uppercase;
+  font-size: 2em;
+  text-align: center;
+  font-weight: bold;
+}
+.container_header .card_header .bienvenu_div .text_acceuil .logo {
+  color: orange;
+}
+.container_header .card_header .bienvenu_div .text_acceuil .span {
+  text-align: center;
+  color: gray;
+  font-size: 0.8em;
+}
+.container_header .card_header .bienvenu_div .auth {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container_header .card_header .bienvenu_div .auth .profile {
+  text-decoration: none;
+  padding: 0.6rem 1.3rem;
+  border-radius: 50px;
+  color: white;
+  background: orange;
+}
+.container_header .card_header .bienvenu_div .auth .profile:hover {
+  opacity: 0.7;
+}
+.container_header .card_header .bienvenu_div .auth .login {
+  text-decoration: none;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  padding: 0.5em 0.9em;
+  border-radius: 5px;
+  margin-right: 3em;
+  background: var(--background-fond);
+  color: white;
+}
+.container_header .card_header .bienvenu_div .auth .register {
+  padding: 0.5em 0.9em;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  background: white;
+  color: var(--background-fond);
+  text-decoration: none;
+}
+.container_header .card_header .image_droite {
+  width: 25%;
+}
+.container_header .card_header .image_droite .image {
+  width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Nouvelle sortie de livre code style */
+.container_sortie {
+  margin: 1.8em 1em 1em 1em;
+}
+.container_sortie .sortie_card .titre {
+  margin: 0 0 1em 4em;
+}
+.container_sortie .sortie_card .categorie_div {
+  height: 7vh;
+  transform: translateY(-2.9em);
+  position: absolute;
+  color: white;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  padding-left: 0.8em;
+  width: 95%;
+  background: rgb(0, 0, 0, 0.5);
+ }
+.container_sortie .sortie_card .titre p {
+  font-weight: bold;
+  font-size: 1.6em;
+}
+.container_sortie .sortie_card .cards_nouvelle .card_sortie {
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;  
+  border-radius: 5px;
+  width: 95%;
+}
+
+.container_sortie .sortie_card .cards_nouvelle .card_sortie .image_cover {
+  height: 40vh;
+  overflow: hidden;
+  transition: 1s;
+}
+.container_sortie .sortie_card .cards_nouvelle .card_sortie .image_cover .image {
+  width: 100%;
+  height: 100%;
+  border-radius: 3px;
+}
+.container_sortie .sortie_card .cards_nouvelle .card_sortie .image_cover .image:hover {
+  transform: scale(1.1);
+  transition: 1s;
+}
+.container_sortie .sortie_card .cards_nouvelle .card_sortie .infos_livre {
+  padding: 0.5em;
+}
+.container_sortie .sortie_card .cards_nouvelle .card_sortie .infos_livre .auteur {
+  color: gray;
+  font-size: 0.85em;
+}
+.container_sortie .sortie_card .cards_nouvelle .card_sortie .info_user {
+  display: flex;
+  background: #FEF5E3;
+  padding: 0.2em 0.5em;
+  justify-content: space-around;
+  align-items: center;
+}
+.container_sortie .sortie_card .cards_nouvelle .card_sortie .info_user .profil_user {
+  width: 80%;
+  display: flex;
+  align-items: center;
+}
+.container_sortie .sortie_card .cards_nouvelle .card_sortie .profil_user .profil {
+  width: 17%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: orange;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 50%;
+  margin-right: 0.5em;
+  height: 5.8vh;
+}
+.container_sortie .sortie_card .cards_nouvelle .card_sortie .commenter {
+  width: 9%;
+  height: 3.5vh;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.container_sortie .sortie_card .cards_nouvelle .card_sortie .commenter:hover {
+  color: green;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Liste des livres style code */
+.container_livres .livres_div h2 {
+  width: 50%;
+  font-size: 1.5em;
+  margin: 1em 0 1em 2.5em;
+}
+.categories {
+  display: flex;
+  justify-content: space-around;
+  background: #FEF5E3;
+  align-items: center;
+  height: 12vh;
+}
+.categories button {
+  padding: 0.6em 1em;
+  color: black;
+  border-radius: 3px;
+  cursor: pointer;
+  background: white;
+  border: none;
+  transition: 5ms;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+.categories button:hover{
+  background: #FEF5E3;
+  color: black;
+  transition: 5ms;
+}
+.categories .active {
+  background: orange;
+  color: white;
+  border: none;
+  transition: .1s;
+}
+.livres_cards_listes {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  min-height: 50vh;
+  margin: 0 2rem;
+  justify-content: space-around;
+}
+.livres_cards_listes .cards_livres {
+  width: 23%;
+  border-radius: 5px;
+  margin: 1em 0.5em;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px; 
+}
+.livres_cards_listes .cards_livres .image_cover {
+  height: 40vh;
+  overflow: hidden;
+  transition: 1s;
+  border-radius: 5px 5px 0 0;
+}
+.livres_cards_listes .cards_livres .image_cover .image {
+  width: 100%;
+  height: 100%;
+}
+.livres_cards_listes .cards_livres .image_cover .image:hover {
+  transform: scale(1.1);
+  transition: 1s;
+}
+.livres_cards_listes .cards_livres .info_user {
+  display: flex;
+  justify-content: space-around;
+  padding: 0.5em;
+  align-items: center;
+  background: #FEF5E3;
+}
+.livres_cards_listes .cards_livres .info_user .profil_user {
+  width: 80%;
+  display: flex;
+  align-items: center;
+}
+.livres_cards_listes .cards_livres .info_user .profil_user .profil {
+  width: 17%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: orange;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 50%;
+  margin-right: 0.5em;
+  height: 5.5vh;
+}
+.livres_cards_listes .cards_livres .categorie_div {
+  height: 8vh;
+  background: rgb(0, 0, 0, 0.5);
+  position: absolute;
+  width: 21.9%;
+  display: flex;
+  align-items: center;
+  color: white;
+  text-transform: uppercase;
+  padding-left: 1em;
+  font-size: 1.1em;
+  transform: translateY(-3.35rem);
+}
+.livres_cards_listes .cards_livres .livre_info {
+  padding: 0.5em;
+}
+.livres_cards_listes .cards_livres .livre_info .auteur {
+  color: gray;
+  font-size: 0.85em;
+}
+.livres_cards_listes .cards_livres .info_user .commenter {
+  width: 10%;
+  cursor: pointer;
+  font-size: 1.8em;
+  height: 3.5vh;
+}
+.livres_cards_listes .cards_livres .info_user .commenter:hover {
+  color: green;
+}
+.container_livres .livres_div .voir_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
+  margin: 1em 0 2em 0;
+}
+.container_livres .livres_div .voir_container .voir {
+  text-decoration: none;
+  background: black;
+  color: white;
+  padding: 0.5em 1.8em;
+  font-size: 1.2em;
+  border-radius: 15px 0 15px 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.profile_page {
+  display: flex;
+  justify-content: space-between;
+}
+.profile_page section {
+  padding: 1em;
+  width: 77%;
+}
+.theme {
+  text-decoration: none;
+  color: black;
+  font-size: 1.25em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Bienvenu card */
+.container_bienvenu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+}
+.container_bienvenu .bienvenu_div {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 75%;
+}
+.container_bienvenu .bienvenu_div .bienvenue_image {
+  width: 40%;
+  height: 45vh;
+}
+.container_bienvenu .bienvenu_div .bienvenue_image .image {
+  width: 100%;
+  border-radius: 5px;
+  height: 100%;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+.container_bienvenu .bienvenu_div .text_bienvenu {
+  width: 55%;
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* AVis formulaire code style */
+.container_avis_form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 65vh;
+}
+.container_avis_form .avis_div {
+  display: flex;
+  width: 60%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.container_avis_form .avis_div .avis_image {
+  width: 48%;
+}
+.container_avis_form .avis_div .avis_image .image {
+  width: 100%;
+  border-radius: 3px;
+  height: 100%;
+}
+.container_avis_form .avis_div .form_div {
+  width: 50%;
+}
+.container_avis_form .avis_div .form_div .titre p {
+  font-weight: bold;
+  font-size: 1.3rem;
+  margin-bottom: 0.5em;
+
+}
+.container_avis_form .avis_div .form_div form input {
+  width: 100%;
+  height: 6.5vh;
+  padding-left: 0.7em;
+  border: 1px solid gray;
+  margin-bottom: 1em;
+  outline: none;
+  border-radius: 3px;
+}
+.container_avis_form .avis_div .form_div form textarea {
+  width: 100%;
+  outline: none;
+  border-radius: 3px;
+  padding: 1em;
+}
+.container_avis_form .avis_div .form_div form button {
+  border: none;
+  background: orange;
+  font-size: 1em;
+  color: white;
+  border-radius: 3px;
+  padding: 0.5em 1.3em;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* NewSletter code style */
+.center_contact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30vh;
+}
+.center_contact .container_contact {
+  width: 85%;
+  height: 19vh;
+  border-radius: 5px;
+  background: black;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.center_contact .container_contact .contact {
+  width: 40%;
+  height: 58%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.center_contact .container_contact .contact .email {
+  font-size: 1.7em;
+  color: white;
+  font-weight: bold;
+}
+.center_contact .container_contact .contact .infos {
+  color: wheat;
+  opacity: 0.5;
+  font-size: 12px;
+}
+.center_contact .container_contact .contact_form{
+  width: 40%;
+}
+.center_contact .container_contact .contact_form input {
+  height: 6.5vh;
+  width: 80%;
+  border-radius: 22px 0 0 22px;
+  padding-left: 1.5em;
+  border: none;
+  outline: none;
+}
+.center_contact .container_contact .contact_form button {
+  background: #FBD146;
+  height: 7vh;
+  cursor: pointer;
+  width: 20%;
+  border-radius: 0 22px 22px 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Les livres de l'user code style */
+.livre_user {
+  padding-top: 6rem;
+}
+.livre_user .intitule {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 1em;
+}
+.livre_user .intitule .titre {
+  width: 70%;
+  text-transform: uppercase;
+  font-size: 1.2em;
+}
+.livre_user .intitule .add_book button {
+  background: orange;
+  border: none;
+  padding: 0.7em 1em;
+  border-radius: 3px;
+  color: white;
+  cursor: pointer;
+}
+.livre_user .intitule .add_book button:hover {
+  opacity: 0.7;
+}
+.container_livre_user {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.container_livre_user .card_user_livre {
+  width: 24.5%;
+  margin-bottom: 1em;
+  border-radius: 3px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px; 
+}
+.container_livre_user .card_user_livre .cover_image {
+  height: 40vh;
+  overflow: hidden;
+  transition: 1s;
+}
+.container_livre_user .card_user_livre .cover_image .image {
+  height: 100%;
+  width: 100%;
+}
+.container_livre_user .card_user_livre .cover_image .image:hover {
+  transform: scale(1.1);
+  transition: 1s;
+}
+.container_livre_user .card_user_livre .categorie_div {
+  height: 7vh;
+  transform: translateY(-2.9em);
+  position: absolute;
+  color: white;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  padding-left: 0.8em;
+  width: 18.2%;
+  background: rgb(0, 0, 0, 0.5);
+}
+.container_livre_user .card_user_livre .info_livre {
+  padding: 0.5em;
+}
+.container_livre_user .card_user_livre .info_livre .auteur{
+  font-size: 0.85em;
+  color: gray;
+}
+.container_livre_user .card_user_livre .action_livre {
+  display: flex;
+  justify-content: space-around;
+  background: #FEF5E3;
+  height: 7vh;
+  align-items: center;
+}
+.container_livre_user .card_user_livre .action_livre div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.container_livre_user .card_user_livre .action_livre .commenter, .delete {
+  font-size: 1.3em;
+}
+.container_livre_user .card_user_livre .action_livre .commenter:hover {
+  color: green;
+  transform: scale(1.1);
+}
+.container_livre_user .card_user_livre .action_livre .delete:hover {
+  color: red;
+  transform: scale(1.1);
+}
+.container_livre_user .card_user_livre .action_livre .update {
+  font-size: 1.2em;
+}
+.container_livre_user .card_user_livre .action_livre .update:hover {
+  color: grey;
+  transform: scale(1.1);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* liste des avis des utilisateurs */
+.container_avis {
+  background: #FEF5E3;
+  margin-top: 1em;
+}
+.container_avis .titre h2 {
+  text-align: center;
+  padding-top: 0.7em;
+}
+.container_avis .avis_cards {
+  display: flex;
+  height: 50vh;
+  flex-wrap: wrap;
+  margin: 0 2em;
+  justify-content: space-around;
+  align-items: center;
+}
+.container_avis .avis_cards .avis_card {
+  width: 30%;
+  padding: 1em;
+  border-radius: 5px;
+  background: white;
+}
+.container_avis .avis_cards .avis_card .image_div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5em;
+}
+.container_avis .avis_cards .avis_card .image_div .card_image {
+  height: 10vh;
+  width: 19%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.3em;
+  text-transform: uppercase;
+  border-radius: 50%;
+  background: #FEF5E3;
+  color: black;
+}
+.container_avis .avis_cards .avis_card .div_nom {
+  text-align: center;
+}
+.container_avis .avis_cards .avis_card .message_div {
+  margin: 0.5em 0;
+  text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+/* Commentaire style code  */
+.commentaire_container {
+  display: flex;
+  background: rgb(0, 0, 0, 0.6);
+  position: fixed;
+  align-items: center;
+  z-index: 200;
+  justify-content: center;
+  min-height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.commentaire_container .commentaire_div {
+  width: 50%;
+  background: white;
+  height: 88vh;
+  border-radius: 5px;
+}
+.commentaire_container .commentaire_div .card_livre {  
+  height: 69vh;
+  padding: 1rem 2em;
+  overflow-Y: scroll;
+}
+.commentaire_container .commentaire_div .entete {
+  display: flex;
+  height: 9vh;
+  background: #f6f6f6;
+  align-items: center;
+  border-radius: 5px;
+  justify-content: space-around;
+}
+.commentaire_container .commentaire_div .comment_div {
+  height: 10vh;
+  margin: 0 0.3em;
+  display: flex;
+  align-items: center;
+}
+.commentaire_container .commentaire_div .comment_div form {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 10vh;
+  margin: 0 1.5em;
+  width: 100%;
+}
+.commentaire_container .commentaire_div .comment_div form textarea {
+  height: 80%;
+  padding: 0.5em;
+  border-radius: 3px;
+  width: 90%;
+}
+.commentaire_container .commentaire_div .comment_div form button {
+  width: 10%;
+  height: 6vh;
+  display: flex;
+  font-size: 2.3em;
+  background: none;
+  cursor: pointer;
+  border: none;
+  align-items: center;
+  justify-content: center;
+}
+.commentaire_container .commentaire_div .entete .pub {
+  width: 80%;
+}
+.commentaire_container .commentaire_div .entete .pub p {
+  font-size: 1.2em
+}
+.commentaire_container .commentaire_div .entete .close {
+  width: 6%;
+  font-size: 1.2em;
+  cursor: pointer;
+  background: grey;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 5.8vh;
+  border-radius: 50%;
+}
+.commentaire_container .commentaire_div .card_livre .header_livre {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.commentaire_container .commentaire_div .card_livre .header_livre .profil_photo {
+  width: 8vh;
+  height: 7.8vh;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 1.2em;
+  background: orange;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.commentaire_container .commentaire_div .card_livre .header_livre .user_info {
+  width: 89%;
+}
+.commentaire_container .commentaire_div .card_livre .header_livre .user_info span {
+  font-size: 0.8em;
+  color: gray;
+}
+.commentaire_container .commentaire_div .card_livre .contenu_livre .info_livre {
+  margin: 0.5em 0;
+  text-transform: uppercase;
+}
+.commentaire_container .commentaire_div .card_livre .contenu_livre .info_livre span {
+  font-weight: bold;
+}
+.commentaire_container .commentaire_div .card_livre .cover_image {
+  height: 85vh;
+  margin: 0.8em 0;
+}
+.commentaire_container .commentaire_div .card_livre .cover_image .image {
+  width: 100%;
+  height: 100%;
+}
+.commentaire_container .commentaire_div .card_livre .liste_commentaire .titre_commentaire {
+  font-size: 1.1em;
+}
+.commentaire_container .commentaire_div .card_livre .liste_commentaire .card_commentaire {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.5em 0;
+}
+.commentaire_container .commentaire_div .card_livre .liste_commentaire .card_commentaire .user_profil {
+  width: 8vh;
+  height: 7.8vh;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 1.2em;
+  background: #f6f6f6;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.commentaire_container .commentaire_div .card_livre .liste_commentaire .card_commentaire .messages {
+  width: 90%;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px; 
+  padding: 0.5em;
+  border-radius: 5px;
+}
+.commentaire_container .commentaire_div .card_livre .liste_commentaire .card_commentaire .messages span {
+  color: gray;
+  font-size: 0.8em;
+}
+.commentaire_container .commentaire_div .card_livre .liste_commentaire .card_commentaire .messages .message {
+  font-size: 0.9rem;
+}
+
+
+
+
+
+
+
+
+
+
+/* authentification style code */
+.login_form {
+  display: flex;
+  padding-top: 4rem;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  border: 1px solid;
+}
+.login_form form {
+  width: 35%;
+  background: white;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  border-radius: 5px;
+  padding: 0.4em 1.5em;
+}
+.login_form form div {
+  display: var(--display-flex);
+  margin: 0.8em 0;
+  flex-direction: column;
+}
+.login_form form div p {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.login_form form div input {
+  height: 6vh;
+  padding-left: 1em;
+  outline: none;
+  border: 1px solid grey;
+  border-radius: 3px;
+}
+.login_form form div label {
+  margin-bottom: 0.3em;
+}
+.login_form form .button{
+  justify-content: right;
+  flex-direction: row;
+  margin-top: 1rem;
+}
+.login_form form .button button {
+  border: none;
+  padding: 0.8em 1.8em;
+  border-radius: 3px;
+  color: white;
+  background: orange;
+  cursor: pointer;
+  transition: 1s;
+}
+.login_form form .button button:hover {
+  background: #FEF5E3;
+  color: black;
+  transition: 1s;
+}
+
+
+
+
+
+
+
+
+
+/* Livre styles */
+.livres_container {
+  min-height: 88vh;
+}
+.livres_container .search_bar {
+  display: var(--display-flex);
+  align-items: var(--center);
+  justify-content: var(--center);
+  height: 12vh;
+  padding-top: 1em;
+}
+.livres_container .search_bar input {
+  width: 38%;
+  height: 7vh;
+  padding-left: 1em;
+  border-radius: 3px 0 0 3px;
+  border: 1px solid gray;
+  outline: none;
+}
+.livres_container .search_bar button {
+  height: 7vh;
+  width: 8%;
+  cursor: pointer;
+  color: white;
+  border: none;
+  background: #006BBB;
+}
+.livres_container .add_livre {
+  display: var(--display-flex);
+  justify-content: right;
+  padding-right: 8.5rem;
+  height: 10vh;
+  align-items: var(--center);
+}
+.livres_container .add_livre button {
+  border: none;
+  width: 12%;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  border-radius: 3px;
+  background: white;
+  height: 6vh;
+  cursor: pointer;
+}
+.livres_container .tables_container {
+  display: var(--display-flex);
+  align-items: center;
+  justify-content: var(--center);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ajouter livre style */
+.form_add_livre {
+  background: rgb(49, 49, 49, 0.8);
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  right: 0;
+  bottom: 0;
+  align-items: center;
+  top: 0;
+  z-index: 100;
+  left: 0;
+  position: fixed;
+}
+.form_add_livre form {
+  padding: 1em;
+  background: white;
+  width: 40%;
+  border-radius: 5px;
+}
+.form_add_livre form div{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5em;
+}
+.form_add_livre form .entete {
+  flex-direction: row;
+  justify-content: space-between;
+  text-transform: uppercase;
+  margin-bottom: 0.6em;
+  font-weight: bold;
+  font-size: 1.3em;
+}
+.form_add_livre form .entete .close {
+  cursor: pointer;
+  padding: 0.2em 0.65em;
+  background: grey;
+  font-weight: normal;
+  color: white;
+  border-radius: 50px;
+}
+.form_add_livre form div input[type='text'], select {
+  height: 6vh;
+  border-radius: 3px;
+  padding-left: 0.8em;
+  border: 1px solid gray;
+}
+.form_add_livre form div textarea {
+  height: 12vh;
+  max-width: 100%;
+  min-width: 100%;
+  padding: 0.8em;
+  border: 1px solid gray;
+}
+.form_add_livre form .add_btn {
+  flex-direction: row;
+  justify-content: right;
+}
+.form_add_livre form .add_btn button {
+  padding: 0.7em 1.5em;
+  background: orange;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 3px;
+}
+/* body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+} */
+/* 
+a {
+  color: inherit;
+  text-decoration: none;
+} */
+
+/* @media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+} */
+
+
+
+
+.profil_user_div {
+  margin-bottom: 0.5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 1em;
+}
+.profil_user_div .photo {
+  height: 8.5vh;
+  background: lightgray;
+  width: 22%;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+.profil_user_div .nom_prenom {
+  text-align: center;
+  margin-top: 0.5em;
+  text-transform: capitalize;
+}
+
+
+
+
+
+
+
+
+
+/* Page des livre uniquement */
+.lecture_image {
+  padding-top: 5rem;
+
+}
+.lecture_image .image_livre {
+  height: 70vh;
+  background-image: url('../Assets/lecture.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  object-fit: cover;
+}
+.lecture_image .image_livre .fond_livre {
+  position: absolute;
+  background: rgb(0, 0, 0, 0.5);
+  height: 70vh;
+  width: 100%;
+  display: flex;
+  z-index: 1;
+  justify-content: center;
+  align-items: center;
+}
+.lecture_image .image_livre .fond_livre .text {
+  border-radius: 5px;
+  padding: 0.5em 1em;
+  font-size: 1.8em;
+  transform: skew(-30deg);
+  background: #FEF5E3;
+}
+.lecture_image .recherche_container {
+  height: 22vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.lecture_image .recherche_container .recherche_div {
+  width: 55%;
+  background: white;
+  padding: 1em 2em;
+  height: 15vh;
+  border-radius: 3px;
+}
+
+.lecture_image .recherche_container .recherche_div .form_search input {
+  width: 80%;
+  height: 6.2vh;
+  padding-left: 0.8em;
+  margin: 0.1em 0 0.5em 0;
+  outline: none;
+  border: 1px solid;
+  border-radius: 4px 0 0 4px;
+}
+.lecture_image .recherche_container .recherche_div .form_search button {
+  height: 6vh;
+  background: orange;
+  border: none;
+  color: white;
+  font-size: 0.9em;
+  cursor: pointer;
+  border-radius: 0 4px 4px 0;
+  width: 20%;
+}
+
+
+
+
+
+
+
+/* Footer style code */
+.footer_center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 35vh;
+  background: #FEF5E3;
+  margin-top: 4em;
+}
+.footer_container {
+  display: flex;
+  justify-content: space-around;
+}
+.footer_container .card {
+  width: 22%;
+}
+.footer_container .titre{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 28vh;
+}
+.footer_container .titre .logo .grand{
+  font-weight: bold;
+  font-size: 1.3em;
+}
+.footer_container .titre .logo .resto {
+  font-size: 12px;
+}
+.footer_container .titre .description{
+  font-size: 13px;
+}
+.footer_container .titre .compte_infos {
+  width: 100%;
+  height: 5.2vh;
+}
+.footer_container .titre .compte_infos .image_card {
+  border: 1px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 12%;
+  height: 100%;
+  border-radius: 50%;
+}
+.footer_container .titre .compte_infos img {
+  width: 45%;
+}
+.footer_container .quicks {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 28vh;
+}
+.footer_container .quicks .quick {
+  font-weight: bold;
+}
+.footer_container .quicks .quick_menu {
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-size: 14px;
+}
+.footer_container .coordonner {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 25vh;
+}
+
+.footer_container .coordonner .finds p {
+  font-weight: bold;
+}
+.footer_container .coordonner .mes_contacts {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 70%;
+}
+.footer_container .coordonner .mes_contacts div {
+  height: 6vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.footer_container .coordonner .mes_contacts div img {
+  width: 7%;
+}
+.footer_container .coordonner .mes_contacts div p {
+  width: 85%;
+  font-size: 14px;
+}
+.footer_container .working {
+  display: flex;
+  justify-content: space-between;
+  height: 28vh;
+  flex-direction: column;
+}
+.footer_container .working .work {
+  font-weight: bold;
+}
+.footer_container .working .horaire {
+  height: 70%;
+  display: flex;
+  font-size: 14px;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+
+
+
+
+
+
+
+
+
+/* responsive */
+@media screen and (max-width: 1115px) {
+
+    /* navbar */
+    .navbar .lien {
+      /* border: 1px solid; */
+      width: 35%;
+    }
+
+    /* pop up profile */
+    .container_pop {
+      /* border: 1px solid; */
+      width: 20%;
+      right: 10rem;
+    }
+
+    /* header */
+    .container_header .card_header .bienvenu_div {
+      /* border: 1px solid; */
+      min-height: 44vh;
+    }
+
+    /* nouvelle sortie */
+    /* .container_sortie .sortie_card .cards_nouvelle {
+
+    }
+    .container_sortie .sortie_card .cards_nouvelle .card_sortie {
+      width: 90%;
+    } */
+
+
+    /* bienvenu style code */
+    .container_bienvenu .bienvenu_div .text_bienvenu {
+      height: 36vh;
+    }
+    .container_bienvenu .bienvenu_div .text_bienvenu .titre {
+      text-align: center;
+    }
+
+    /* card livre style code */
+    .livres_cards_listes .cards_livres {
+      width: 23.4%;
+    }
+    .livres_cards_listes .cards_livres .categorie_div {
+      width: 22.05%;
+    }
+    .livres_cards_listes .cards_livres .info_user .profil_user .profil {
+      width: 20.9%;
+    }
+
+
+    /* Avis user */
+    .container_avis .avis_cards .avis_card {
+      width: 32%;
+    }
+    .container_avis .avis_cards .avis_card .image_div .card_image {
+      width: 19%;
+      height: 8.4vh;
+    }
+
+
+    /* avis form style code */
+    .container_avis_form {
+      margin: 1em 0;
+    }
+    .container_avis_form .avis_div {
+      width: 70%;
+    }
+
+    /* Auth login style code */
+    .login_form form {
+      width: 40%;
+    }
+}
+
+
+
+
+/* Petit ecran, ordinateurs */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  
+}
+
+
+
+
+/* ipad, tablette */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  
+
+  .navbar .lien {
+    /* border: 1px solid; */
+    width: 40%;
+  }
+  .navbar .lien .home_div {
+    /* border: 1px solid; */
+    width: 28%;
+  }
+
+  /* pop up profile */
+  .container_pop {
+    /* border: 1px solid; */
+    width: 20%;
+    right: 10rem;
+  }
+
+  /* header */
+  .container_header .card_header .bienvenu_div {
+    /* border: 1px solid; */
+    min-height: 44vh;
+  }
+
+  /* nouvelle sortie */
+  /* .container_sortie .sortie_card .cards_nouvelle {
+
+  } */
+  /* .container_sortie .sortie_card .cards_nouvelle .card_sortie {
+    width: 100%;
+  } */
+
+
+  /* bienvenu style code */
+  .container_bienvenu .bienvenu_div {
+    width: 95%;
+  }
+  .container_bienvenu .bienvenu_div .bienvenue_image {
+    width: 46%;
+  }
+  .container_bienvenu .bienvenu_div .text_bienvenu {
+    min-height: 43vh;
+    width: 50%;
+  }
+  .container_bienvenu .bienvenu_div .text_bienvenu .titre {
+    text-align: center;
+  }
+
+  /* card livre style code */
+  .container_livres .livres_div h2 {
+    width: 100%;
+  }
+  .livres_cards_listes .cards_livres {
+    width: 45%;
+  }
+  .livres_cards_listes .cards_livres .categorie_div {
+    width: 40.1%;
+  }
+  .livres_cards_listes .cards_livres .info_user .profil_user .profil {
+    width: 17%;
+  }
+
+
+  /* Avis user */
+  .container_avis .avis_cards .avis_card {
+    width: 40%;
+    flex-wrap: wrap;
+  }
+  .container_avis .avis_cards .avis_card .image_div .card_image {
+    width: 19%;
+    height: 8.4vh;
+  }
+
+
+  /* avis form style code */
+  .container_avis_form {
+    margin: 1em 0;
+  }
+  .container_avis_form .avis_div {
+    width: 70%;
+  }
+
+  /* Auth login style code */
+  .login_form form {
+    width: 54%;
+  }
+
+}
+
+
+/* les mobiles */
+@media screen and (min-width: 320px) and (max-width: 480px) {
+  
+}
